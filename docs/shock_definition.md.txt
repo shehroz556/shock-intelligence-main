@@ -1,0 +1,46 @@
+# Economic Shock Definition
+
+## 1. What Is an Economic Shock?
+
+An economic shock is a statistically significant deviation in a core macroeconomic indicator from its historical baseline that occurs within a limited time window,
+and is large enough to plausibly alter economic expectations, prices, 
+or behavior. In this system, shocks are detected quantitatively using historical data rather than assumed based on narratives or headlines. Detection does not imply causality; it identifies moments that warrant deeper economic interpretation.
+
+## 2. What This System Considers a Shock
+
+This system considers an event a potential economic shock if:
+
+- The indicator deviates significantly from its recent historical trend
+- The deviation exceeds normal volatility for that indicator
+- The change occurs over a short time window rather than gradually
+- The deviation is measurable using historical data only (no future information)
+
+## 3. What This System Does NOT Consider a Shock
+
+This system does not consider the following as shocks:
+
+- Long-term structural trends without sudden deviation
+- Seasonal fluctuations already captured by historical patterns
+- Small changes that fall within normal volatility ranges
+- Narrative-driven events that do not appear in the data
+
+## 4. Time Semantics
+
+All shock detection is based strictly on information available up to the observation date.
+Rolling baselines are computed using historical windows that exclude the current observation to avoid lookahead bias. Events are evaluated at the frequency of the underlying data (monthly or daily depending on indicator).
+
+## 5. Detection vs Explanation
+
+- This system distinguishes between shock detection and shock explanation. 
+- Detection identifies statistically unusual behavior in an indicator. 
+- Explanation involves economic reasoning, policy context, and external information, and may change over time.
+- The system prioritizes reliable detection first, with explanation treated as a separate analytical layer.
+
+## 6. Known Limitations (Initial Version)
+
+Known limitations of the initial version include:
+
+- Sensitivity to window size selection
+- Reduced reliability for indicators with sparse data
+- No explicit causal attribution
+- Potential false positives during periods of extreme volatility
