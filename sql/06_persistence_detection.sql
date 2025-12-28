@@ -1,7 +1,7 @@
 
 -- Compute persistence of detected economic shocks
 ALTER TABLE shock_events
-ADD COLUMN persistence_periods INTEGER;
+ADD COLUMN IF NOT EXISTS persistence_periods INTEGER;
 
 
 WITH shock_baselines AS (

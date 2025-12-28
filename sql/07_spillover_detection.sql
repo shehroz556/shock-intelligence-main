@@ -1,13 +1,13 @@
 -- Detect cross-indicator spillovers following economic shocks
-CREATE TABLE shock_spillovers (
-    source_indicator      TEXT,
-    target_indicator      TEXT,
-    shock_date            DATE,
-    reaction_window_days  INTEGER,
-    avg_deviation         NUMERIC,
-    max_deviation         NUMERIC,
-    spillover_detected    BOOLEAN,
-    created_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+CREATE TABLE IF NOT EXISTS shock_spillovers (
+    source_indicator TEXT,
+    target_indicator TEXT,
+    shock_date DATE,
+    reaction_window_days INTEGER,
+    avg_deviation NUMERIC,
+    max_deviation NUMERIC,
+    spillover_detected BOOLEAN,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (source_indicator, target_indicator, shock_date)
 );
 
