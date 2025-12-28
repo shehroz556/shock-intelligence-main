@@ -1,5 +1,4 @@
 -- Detect cross-indicator spillovers following economic shocks
-
 CREATE TABLE shock_spillovers (
     source_indicator      TEXT,
     target_indicator      TEXT,
@@ -12,6 +11,8 @@ CREATE TABLE shock_spillovers (
     PRIMARY KEY (source_indicator, target_indicator, shock_date)
 );
 
+
+-- Detect cross-indicator spillovers following CPI shocks (exclude self-effects)
 
 WITH cpi_shocks AS (
     SELECT
@@ -48,6 +49,7 @@ reaction_window AS (
     JOIN target_baselines b
         ON b.date > s.shock_date
         AND b.date <= s.shock_date + INTERVAL '30 days'
+        AND b.indicator <> 'CPI'   -- 🔑 critical fix
 )
 INSERT INTO shock_spillovers (
     source_indicator,
