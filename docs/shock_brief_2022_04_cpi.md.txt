@@ -1,0 +1,81 @@
+📄 Shock Brief — Pakistan Inflation Signal (April 2022)
+Project: Shock Intelligence Engine (Early Prototype)
+Why this brief exists
+
+This brief is an early output of an ongoing project to build a data-driven system for detecting and interpreting macroeconomic shocks. The goal is not to predict the economy or tell stories after the fact, but to create a disciplined way of identifying when something meaningfully unusual happens in economic data — and to do so consistently, transparently, and conservatively.
+
+What follows is one such signal.
+
+Executive summary (plain language)
+
+In April 2022, Pakistan’s inflation data showed an abrupt and statistically unusual jump relative to recent history. The system flagged this movement as an inflation shock — not because inflation was “high” in a general sense, but because the change was large relative to normal volatility over a short period of time.
+
+While the shock was severe in magnitude, early evidence suggests it behaved more like a spike than an immediate structural break. No defensible cross-indicator reactions (such as exchange-rate or market stress) can be asserted yet, largely due to limited data coverage.
+
+What exactly happened?
+
+Using a rolling historical baseline, the April 2022 CPI reading deviated sharply from recent inflation behavior. This deviation exceeded what would normally be expected given historical volatility, triggering a formal shock event under the system’s rules.
+
+Importantly, this detection is statistical, not narrative-driven. The system does not “know” why inflation moved — only that it moved in an unusually large way.
+
+How severe was the shock?
+
+The shock ranks near the upper end of historical CPI deviations observed in the data. In relative terms, this places it among the more extreme inflationary movements rather than routine month-to-month variation.
+
+Severity here reflects unusualness, not hardship directly — but unusually large movements are often where economic consequences begin to compound.
+
+Did it last?
+
+So far, the shock shows limited persistence. Subsequent inflation readings did not remain consistently elevated relative to the pre-shock baseline for an extended period.
+
+This suggests the event may have been closer to a sharp disturbance than an immediate regime shift. That said, persistence estimates are inherently forward-looking and should be updated as more data becomes available.
+
+Did anything else react?
+
+At this stage, the system does not detect statistically defensible spillovers into other indicators such as the exchange rate, equity markets, or policy rates.
+
+This does not mean that no interactions occurred — only that, given current data availability and conservative thresholds, no reaction can be asserted with confidence. Silence here reflects restraint, not ignorance.
+
+What did not happen (and why that matters)
+
+No confirmed immediate currency stress
+
+No clear short-run market overreaction
+
+No detectable policy-rate response in available data
+
+Explicitly stating non-events is important. Many economic narratives emerge from assuming reactions that data does not yet support.
+
+Limitations (being honest)
+
+This brief is constrained by:
+
+limited indicator coverage
+
+sparse post-shock observations
+
+absence of causal attribution
+
+sensitivity to window choices
+
+These limitations are intentional trade-offs in an early-stage system that prioritizes correctness over completeness.
+
+Why this matters going forward
+
+This shock serves as:
+
+a reference point for future inflation dynamics
+
+a calibration case for severity and persistence metrics
+
+a demonstration of how the system behaves under real conditions
+
+As more indicators and longer histories are added, this framework will allow faster, more consistent interpretation of future macroeconomic disruptions.
+
+About the system
+
+Shocks are detected using rolling baselines and volatility-adjusted thresholds, explicitly avoiding lookahead bias. Severity, persistence, and spillovers are treated as separate analytical layers. The system is designed to remain conservative, auditable, and extensible rather than exhaustive.
+
+Status of this project
+
+This brief represents an early but functional milestone. The system is actively being expanded with additional data sources, automation, and interpretive layers.

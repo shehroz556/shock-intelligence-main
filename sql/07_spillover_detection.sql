@@ -70,4 +70,5 @@ SELECT
     MAX(ABS(deviation)) >= 2 AS spillover_detected
 FROM reaction_window
 GROUP BY shock_date, target_indicator
+HAVING COUNT(deviation) > 0
 ON CONFLICT DO NOTHING;
