@@ -1,4 +1,3 @@
--- Idempotent shock detection using rolling z-score
 INSERT INTO shock_events (
     country,
     indicator,
@@ -17,7 +16,7 @@ SELECT
     rolling_mean AS baseline_value,
     value - rolling_mean AS deviation,
     (value - rolling_mean) / NULLIF(rolling_std, 0) AS z_score,
-    'z_score_3_period' AS detection_method
+    'z_score_rolling' AS detection_method
 FROM (
     SELECT
         country,
