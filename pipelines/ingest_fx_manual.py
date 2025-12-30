@@ -2,7 +2,7 @@ import pandas as pd
 from db_connection import get_connection
 
 # Path to your FX CSV file (update this path)
-CSV_PATH = r"C:\Users\Shehroz\Documents\shock-intelligence-main\usd_pkr.csv"
+CSV_PATH = r"C:\Users\Shehroz\Documents\shock-intelligence-main\data_raw\usd_pkr_daily.csv"
 
 def ingest_fx_data():
     df = pd.read_csv(CSV_PATH)
