@@ -1,91 +1,65 @@
-📄 Shock Brief — Pakistan Inflation Shock (April 2022)
+Shock Intelligence Brief
+Pakistan: Inflation-Led Macroeconomic Stress Transmission
+1. Purpose of This System
 
-System: Shock Intelligence Engine (Early Version)
+This project develops a shock intelligence engine designed to identify inflationary shocks in Pakistan and trace how these shocks propagate through financial markets, liquidity conditions, and monetary policy responses over time.
 
-Why this brief exists
+Rather than focusing on forecasting, the system emphasizes detection, severity assessment, and transmission mapping of macroeconomic stress events using rolling statistical baselines.
 
-This brief is an output of an ongoing project to build a data-driven, conservative system for detecting and interpreting macroeconomic shocks. The system is designed to identify when economic indicators behave in a statistically unusual way, and then evaluate the magnitude, duration, and downstream reactions of those events.
+2. Data Inputs
 
-This document reflects an early but functional stage of that system.
+The engine integrates four core macro-financial indicators:
 
-Executive summary (plain language)
+Consumer Price Index (CPI), monthly, as the primary shock origin
 
-In April 2022, Pakistan experienced a statistically significant inflation shock, detected through an abrupt deviation in the Consumer Price Index (CPI) relative to recent historical behavior. The shock ranked as high severity compared to past inflation movements.
+USD/PKR exchange rate, daily, as a market reaction indicator
 
-While the inflation shock itself showed limited persistence, subsequent data indicates a measurable reaction in the exchange rate, suggesting that inflationary pressure spilled into currency dynamics within a short time window.
+3-Month KIBOR, daily, as a liquidity and funding stress indicator
 
-No other cross-indicator reactions can be asserted at this stage.
+Policy (Target) Rate, event-based, as the institutional response mechanism
 
-What happened?
+All series are standardized, time-aligned, and stored in a unified relational schema.
 
-Using a rolling historical baseline adjusted for volatility, the April 2022 CPI reading deviated sharply from normal inflation behavior. This deviation exceeded the system’s detection threshold, triggering a formal shock event.
+3. Shock Detection Methodology
 
-Importantly, the system does not rely on narratives or predefined events. The shock was identified purely because the data moved in an unusually large way over a short period of time.
+Shocks are identified using rolling statistical baselines. Deviations from historical norms are evaluated using z-score based thresholds, allowing the system to detect abnormal movements without assuming fixed regimes.
 
-How severe was the shock?
+Each detected shock is assigned:
 
-Severity is measured as the percentile rank of the shock’s deviation relative to historical CPI movements.
+a deviation magnitude
 
-The April 2022 inflation shock ranks near the upper end of observed CPI deviations, indicating that it was not routine month-to-month variation, but a comparatively extreme inflationary movement.
+a standardized z-score
 
-Severity here reflects unusualness, not welfare impact directly, but unusually large movements are often where economic stress begins to propagate.
+a severity percentile relative to historical events
 
-Did the shock persist?
+a persistence measure indicating how long stress remains elevated
 
-Post-shock CPI readings did not remain consistently elevated relative to the pre-shock baseline for an extended number of periods. Based on available data, the shock appears to have behaved more like a sharp disturbance than an immediate structural break.
+4. Key Observations
 
-Persistence estimates are inherently forward-looking and will be updated as additional post-shock observations become available.
+The system identifies multiple high-severity inflation shocks across the sample period. These shocks are frequently followed by statistically significant responses in:
 
-Did the shock spill over to other indicators?
+the exchange rate, often reacting rapidly and with high volatility
 
-After the inflation shock, the system evaluated whether other macro indicators exhibited abnormal behavior within a defined reaction window.
+short-term interest rates, reflecting tightening liquidity conditions
 
-A statistically significant spillover into the PKR/USD exchange rate was detected. Exchange-rate movements following the CPI shock exceeded normal historical volatility, indicating that inflationary pressure was accompanied by short-term currency stress.
+Policy rate responses appear less frequent and more delayed, consistent with institutional decision-making processes rather than immediate market reactions.
 
-This spillover is temporal, not causal. The system does not claim that inflation caused the exchange-rate movement, only that the two were meaningfully linked in time beyond what historical volatility would predict.
+The absence of policy action in certain periods is treated as an informative outcome rather than a system failure.
 
-No defensible spillovers into other indicators (such as equities or policy rates) can be asserted with current data.
+5. Interpretation and Limitations
 
-What did not happen (and why this matters)
+The engine captures temporal stress transmission rather than causal inference. While the observed spillovers suggest meaningful economic relationships, the results should be interpreted as signals of coordinated stress rather than proof of direct causality.
 
-No evidence of broad multi-indicator macro stress
+Future extensions may include:
 
-No detectable immediate policy-rate response
+response timing attribution
 
-No confirmed equity-market overreaction
+regime-specific thresholds
 
-Explicitly stating non-events is important. Many economic narratives are formed by assuming reactions that data does not yet support.
+machine learning-based pattern classification
 
-Limitations and uncertainty
+6. Project Status
 
-This brief is constrained by:
+This shock brief represents a stable analytical milestone. The ingestion pipelines, detection logic, and spillover mechanisms are fully operational and reproducible.
 
-limited indicator coverage
-
-sparse post-shock observations
-
-absence of causal attribution
-
-sensitivity to rolling window choices
-
-These limitations reflect deliberate design choices favoring conservative inference over narrative completeness.
-
-Why this matters going forward
-
-This event serves as:
-
-a reference inflation shock for future calibration
-
-a demonstration of how inflation pressure can transmit into currency dynamics
-
-a validation of the system’s ability to detect second-order effects when data becomes available
-
-As more indicators and longer histories are added, this framework enables faster and more consistent interpretation of future macroeconomic disruptions.
-
-About the system
-
-Shocks are detected using rolling baselines and volatility-adjusted thresholds, explicitly avoiding lookahead bias. Severity, persistence, and spillovers are treated as separate analytical layers. The system is designed to remain conservative, auditable, and extensible.
-
-Project status
-
-This brief represents an early but meaningful milestone. The system is actively evolving, with planned extensions including additional indicators, automated data ingestion, and confidence scoring.
+Subsequent development will focus on interpretation, visualization, and advanced modeling layers.
