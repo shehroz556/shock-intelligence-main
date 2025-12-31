@@ -1,10 +1,10 @@
 import os
-from db_connection import get_connection
+from pipelines.db_connection import get_connection
+from pipelines.run_shock_detection import run_shock_detection
 
 SQL_FOLDER = os.path.join(os.path.dirname(__file__), "..", "sql")
 
 SQL_FILES = [
-    "04_shock_detection.sql",
     "05_severity_scoring.sql",
     "06_persistence_detection.sql",
     "07_spillover_detection.sql",
@@ -16,6 +16,9 @@ def run_sql_file(cursor, filepath):
         cursor.execute(sql)
 
 def run_engine():
+    print("▶ Running shock detection with config...")
+    run_shock_detection()
+
     conn = get_connection()
     cur = conn.cursor()
 

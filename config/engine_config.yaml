@@ -1,0 +1,55 @@
+# Shock Intelligence Engine Configuration
+
+project:
+  name: shock_intelligence_engine
+  country: Pakistan
+  description: Inflation-led macroeconomic shock detection and transmission system
+
+data:
+  database:
+    schema: public
+    time_series_table: time_series
+    shock_events_table: shock_events
+    spillover_table: shock_spillovers
+
+indicators:
+  shock_origin:
+    - CPI
+
+  market_indicators:
+    - USD_PKR
+
+  liquidity_indicators:
+    - KIBOR_3M
+
+  policy_indicators:
+    - POLICY_RATE
+
+shock_detection:
+  rolling_window_periods: 36
+  z_score_threshold: 2.5
+  min_persistence_periods: 2
+  detection_method: rolling_z_score
+
+severity_scoring:
+  method: percentile_rank
+  lookback_periods: full_history
+
+spillover_detection:
+  reaction_window_days: 90
+  min_avg_deviation: 0.5
+  min_max_deviation: 1.0
+
+temporal_settings:
+  cpi_frequency: monthly
+  market_frequency: daily
+  policy_frequency: event_based
+
+visualization_defaults:
+  use_yoy_for_comparison: true
+  normalize_cpi_for_levels: false
+
+engine_behavior:
+  treat_inaction_as_signal: true
+  allow_overlapping_shocks: true
+  overwrite_existing_results: false

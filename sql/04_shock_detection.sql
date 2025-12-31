@@ -26,16 +26,16 @@ FROM (
         AVG(value) OVER (
             PARTITION BY country, indicator
             ORDER BY date
-            ROWS BETWEEN 3 PRECEDING AND 1 PRECEDING
+            ROWS BETWEEN {rolling_window} PRECEDING AND 1 PRECEDING
         ) AS rolling_mean,
         STDDEV(value) OVER (
             PARTITION BY country, indicator
             ORDER BY date
-            ROWS BETWEEN 3 PRECEDING AND 1 PRECEDING
+            ROWS BETWEEN {rolling_window} PRECEDING AND 1 PRECEDING
         ) AS rolling_std
     FROM time_series
 ) t
 WHERE
     rolling_mean IS NOT NULL
-    AND ABS((value - rolling_mean) / NULLIF(rolling_std, 0)) >= 2
+    AND ABS((value - rolling_mean) / NULLIF(rolling_std, 0)) >= {z_threshold}
 ON CONFLICT (country, indicator, shock_date) DO NOTHING;
