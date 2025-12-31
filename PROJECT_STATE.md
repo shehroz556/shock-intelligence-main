@@ -106,3 +106,87 @@ The system prioritizes conservative inference, transparency, and reproducibility
 
 ## Usage Note
 This project is an active research and engineering system under continuous development. Outputs are exploratory and intended for analytical insight, not forecasting or policy prescription.
+
+
+#Update
+# Project State — Shock Intelligence Engine (Pakistan)
+
+## Project Purpose
+This project is a research-driven macroeconomic shock detection and transmission system focused on Pakistan. The goal is to identify inflation shocks relative to historical context, measure their severity and persistence, and observe how stress propagates through markets, liquidity, and policy responses over time.
+
+The system prioritizes interpretability, timing, and severity rather than prediction or causal claims.
+
+---
+
+## Data Integrated
+The following datasets have been ingested, standardized, and validated:
+
+- Consumer Price Index (CPI)
+- USD/PKR exchange rate
+- 3-month KIBOR
+- Policy (target) rate
+
+All data are stored in a relational PostgreSQL database and exposed via analytical views.
+
+---
+
+## Core Methodology
+- Inflation shocks are detected using rolling statistical baselines rather than fixed thresholds.
+- Each shock is assigned a relative severity score based on magnitude and persistence.
+- Transmission analysis examines how shocks relate temporally to:
+  - Exchange rate movements
+  - Short-term interest rate (liquidity) responses
+  - Policy rate decisions
+- Periods of inaction are treated as informative signals, not missing data.
+
+---
+
+## Database & Pipeline Status
+- PostgreSQL schema finalized
+- Time-series ingestion pipelines implemented and tested
+- Shock detection and severity scoring SQL scripts completed
+- Spillover logic implemented and verified
+- Re-ingestion and resets tested successfully
+
+---
+
+## Visualization Layer
+A Power BI dashboard has been built with the following narrative flow:
+
+1. CPI Shock Timeline  
+   Shows relative severity of inflation deviations from rolling historical baselines.
+
+2. CPI vs Exchange Rate  
+   Uses year-over-year percentage changes for both CPI and USD/PKR to preserve unit comparability and observe market responses during high-severity periods.
+
+3. CPI vs KIBOR  
+   Examines liquidity tightening relative to inflation stress rather than inflation levels.
+
+4. CPI vs Policy Rate  
+   Highlights delayed and selective institutional responses, emphasizing persistence and severity over short-term volatility.
+
+A proper DateTable has been implemented in Power BI, and all YoY and indexed measures are functioning correctly.
+
+---
+
+## Current Status
+Core system is complete and stable.
+Dashboard narrative finalized.
+GitHub README written to mirror analytical and visual narrative.
+
+The project is now in a polish-and-extension phase rather than a build-from-scratch phase.
+
+---
+
+## Constraints & Philosophy
+- No forecasting or causal claims are made.
+- Focus remains on detection, severity, and timing.
+- Statistical rigor and clarity take precedence over visual complexity.
+
+---
+
+## Next Intended Directions
+- Documentation and portfolio packaging
+- Optional automation and scheduling
+- Extension to additional indicators or countries
+- Potential transformation into a reusable analytical framework
