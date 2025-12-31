@@ -14,7 +14,7 @@ The dashboard follows a deliberate narrative flow. Each visual answers a specifi
 
 ---
 
-### 1. CPI Shock Timeline (screenshots\01_cpi_shock_timeline.png)
+### 1. CPI Shock Timeline ![CPI Shock Timeline](screenshots/01_cpi_shock_timeline.png)
 *Question:* When does inflation stress meaningfully exceed historical norms?
 
 This chart shows the relative severity of inflation deviations from rolling historical baselines. Spikes indicate periods of unusually high inflation stress, accounting for both magnitude and persistence.
@@ -23,14 +23,14 @@ This establishes the timing and intensity of macroeconomic stress.
 
 ---
 
-### 2. CPI vs Exchange Rate (screenshots\02_cpi_vs_exchange_rate.png)
+### 2. CPI vs Exchange Rate ![CPI vs Exchange Rate](screenshots/02_cpi_vs_exchange_rate.png)
 *Question:* How do currency markets react during high inflation stress?
 
 Both CPI and USD/PKR are shown as year-over-year percentage changes to preserve unit comparability. This view highlights how exchange rate movements cluster around high-severity inflation periods, often reacting faster and more sharply than institutional responses.
 
 ---
 
-### 3. CPI vs KIBOR (Liquidity Stress) (screenshots\03_cpi_vs_kibor.png)
+### 3. CPI vs KIBOR (Liquidity Stress) ![CPI vs KIBOR](screenshots/03_cpi_vs_kibor.png)
 *Question:* Does inflation stress translate into short-term funding pressure?
 
 This chart compares CPI year-over-year changes with the 3-month KIBOR rate. Liquidity tightening appears selectively and clusters around extreme inflation periods rather than responding mechanically to every inflation movement.
@@ -39,7 +39,7 @@ This suggests discretionary or threshold-based liquidity responses.
 
 ---
 
-### 4. CPI vs Policy Rate (screenshots\04_cpi_vs_policy_rate)
+### 4. CPI vs Policy Rate ![CPI vs Policy Rate](screenshots/04_cpi_vs_policy_rate)
 *Question:* When and how do institutions respond?
 
 Policy rate changes are infrequent and delayed relative to inflation stress. Long flat stretches indicate deliberate non-response rather than missing data. Policy actions cluster around periods of sustained and severe inflation rather than short-term volatility.
