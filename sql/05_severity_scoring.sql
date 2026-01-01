@@ -1,8 +1,5 @@
 -- Compute severity scores for detected shocks using percentile ranking
 
-ALTER TABLE shock_events
-ADD COLUMN IF NOT EXISTS severity_percentile NUMERIC;
-
 WITH ranked_shocks AS (
     SELECT
         country,

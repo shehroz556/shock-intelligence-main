@@ -48,7 +48,7 @@ reaction_window AS (
     FROM cpi_shocks s
     JOIN target_baselines b
         ON b.date > s.shock_date
-        AND b.date <= s.shock_date + INTERVAL '30 days'
+        AND b.date <= s.shock_date + ({reaction_window_days} || ' days')::INTERVAL
         AND b.indicator <> 'CPI'   -- 🔑 critical fix
 )
 INSERT INTO shock_spillovers (
@@ -64,10 +64,13 @@ SELECT
     'CPI' AS source_indicator,
     target_indicator,
     shock_date,
-    30 AS reaction_window_days,
+    {reaction_window_days} AS reaction_window_days,
     AVG(deviation) AS avg_deviation,
     MAX(ABS(deviation)) AS max_deviation,
-    MAX(ABS(deviation)) >= 2 AS spillover_detected
+    (
+        AVG(ABS(deviation)) >= {min_avg_deviation}
+        OR MAX(ABS(deviation)) >= {min_max_deviation}
+    ) AS spillover_detected
 FROM reaction_window
 GROUP BY shock_date, target_indicator
 HAVING COUNT(deviation) > 0

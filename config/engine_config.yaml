@@ -53,3 +53,32 @@ engine_behavior:
   treat_inaction_as_signal: true
   allow_overlapping_shocks: true
   overwrite_existing_results: false
+
+response_timing:
+  description: >
+    Rules for detecting when indicators meaningfully respond
+    to detected shocks, including start, end, lag, and duration.
+
+  default:
+    entry_threshold: 1.0
+    confirmation_periods: 2
+    exit_threshold: 0.5
+    exit_confirmation_periods: 2
+    max_response_window_days: 180
+
+  indicator_overrides:
+    USD_PKR:
+      entry_threshold: 1.2
+      confirmation_periods: 1
+      exit_threshold: 0.6
+
+    KIBOR_3M:
+      entry_threshold: 0.8
+      confirmation_periods: 2
+      exit_threshold: 0.4
+
+    POLICY_RATE:
+      entry_threshold: 0.5
+      confirmation_periods: 1
+      exit_threshold: 0.3
+      discrete_response: true

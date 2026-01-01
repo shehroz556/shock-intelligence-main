@@ -1,13 +1,14 @@
 import os
 from pipelines.db_connection import get_connection
 from pipelines.run_shock_detection import run_shock_detection
+from pipelines.run_spillover_detection import run_spillover_detection
+from pipelines.run_response_detection import run_response_detection
 
 SQL_FOLDER = os.path.join(os.path.dirname(__file__), "..", "sql")
 
 SQL_FILES = [
     "05_severity_scoring.sql",
     "06_persistence_detection.sql",
-    "07_spillover_detection.sql",
 ]
 
 def run_sql_file(cursor, filepath):
@@ -30,6 +31,12 @@ def run_engine():
     conn.commit()
     cur.close()
     conn.close()
+
+    print("▶ Running spillover detection with config...")
+    run_spillover_detection()
+
+    print("▶ Running response detection with config...")
+    run_response_detection()
 
     print("✅ Shock engine executed successfully")
 
