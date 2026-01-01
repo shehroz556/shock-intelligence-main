@@ -190,3 +190,34 @@ The project is now in a polish-and-extension phase rather than a build-from-scra
 - Optional automation and scheduling
 - Extension to additional indicators or countries
 - Potential transformation into a reusable analytical framework
+
+
+# Project State – Phase 2 Complete
+
+## What is working
+- Time series ingestion (CPI, USD_PKR, KIBOR_3M, POLICY_RATE)
+- Shock detection using rolling z-scores (configurable)
+- Severity scoring via percentile ranking (within indicator)
+- Persistence detection (baseline reversion logic)
+- Spillover detection (CPI → other indicators)
+- Response detection (timing, lag, duration – scoped & performant)
+- Power BI views operational
+
+## Current constraints
+- Response detection limited to:
+  - Top severe shocks
+  - Single target indicator (USD_PKR)
+- Persistence not capped
+- Spillovers only CPI-sourced
+
+## Tables created
+- time_series
+- shock_events
+- shock_spillovers
+- response_events
+
+## Next intended steps
+- Generalize response detection to all indicators
+- Add response strength classification
+- Introduce normalization across indicators
+- Build narrative layer (shock → spillover → response)
