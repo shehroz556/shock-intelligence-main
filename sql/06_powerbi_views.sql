@@ -40,3 +40,25 @@ WHERE indicator IN (
     'KIBOR_3M',
     'POLICY_RATE'
 );
+
+CREATE OR REPLACE VIEW vw_shock_normalized AS
+SELECT
+    indicator,
+    shock_date,
+    z_score,
+    severity_percentile,
+    persistence_periods,
+    relative_severity,
+    global_shock_rank
+FROM shock_events_normalized;
+
+CREATE OR REPLACE VIEW vw_system_stress_periods AS
+SELECT
+    stress_start,
+    stress_end,
+    indicators_involved,
+    stress_intensity,
+    dominant_indicator,
+    created_at
+FROM system_stress_periods;
+

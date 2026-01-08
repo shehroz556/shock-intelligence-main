@@ -2,6 +2,7 @@ ALTER TABLE shock_events
 ADD COLUMN IF NOT EXISTS severity_percentile NUMERIC,
 ADD COLUMN IF NOT EXISTS persistence_periods INTEGER;
 
+
 CREATE TABLE shock_spillovers (
     source_indicator TEXT,
     target_indicator TEXT,
